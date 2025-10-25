@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./styles.css" rel="stylesheet" />
+    <script src="./scripts/payment.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <h1>Complete Your Payment</h1>
+
+        <form id="payment-form" class="form" novalidate>
+            <section class="form-section">
+                <h2 class="section-title">Contact</h2>
+                <div class="field">
+                    <label for="name">Cardholder Name</label>
+                    <input id="name" name="name" type="text" autocomplete="cc-name" required />
+                    <small class="error" data-error-for="name"></small>
+                </div>
+
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required />
+                    <small class="error" data-error-for="email"></small>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title">Card</h2>
+                <div class="field">
+                    <label for="card-number">Card Number</label>
+                    <input
+                        id="card-number"
+                        name="cardNumber"
+                        type="text"
+                        inputmode="numeric"
+                        autocomplete="cc-number"
+                        placeholder="1234 5678 9012 3456"
+                        maxlength="23"
+                        required
+                    />
+                    <small class="hint">We only format and validate in-browser.</small>
+                    <small class="error" data-error-for="card-number"></small>
+                </div>
+
+                <div class="field-inline">
+                    <div class="field">
+                        <label for="expiry-month">Expiry (MM)</label>
+                        <input
+                            id="expiry-month"
+                            name="expiryMonth"
+                            type="text"
+                            inputmode="numeric"
+                            autocomplete="cc-exp-month"
+                            placeholder="MM"
+                            maxlength="2"
+                            required
+                        />
+                        <small class="error" data-error-for="expiry-month"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="expiry-year">Expiry (YY)</label>
+                        <input
+                            id="expiry-year"
+                            name="expiryYear"
+                            type="text"
+                            inputmode="numeric"
+                            autocomplete="cc-exp-year"
+                            placeholder="YY"
+                            maxlength="2"
+                            required
+                        />
+                        <small class="error" data-error-for="expiry-year"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="cvv">CVV</label>
+                        <input
+                            id="cvv"
+                            name="cvv"
+                            type="password"
+                            inputmode="numeric"
+                            autocomplete="cc-csc"
+                            placeholder="123"
+                            maxlength="4"
+                            required
+                        />
+                        <small class="error" data-error-for="cvv"></small>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title">Billing</h2>
+                <div class="field">
+                    <label for="address-line1">Address Line 1</label>
+                    <input id="address-line1" name="addressLine1" type="text" autocomplete="address-line1" required />
+                    <small class="error" data-error-for="address-line1"></small>
+                </div>
+
+                <div class="field">
+                    <label for="address-line2">Address Line 2 (optional)</label>
+                    <input id="address-line2" name="addressLine2" type="text" autocomplete="address-line2" />
+                </div>
+
+                <div class="field-inline">
+                    <div class="field">
+                        <label for="city">City</label>
+                        <input id="city" name="city" type="text" autocomplete="address-level2" required />
+                        <small class="error" data-error-for="city"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="state">State/Province</label>
+                        <input id="state" name="state" type="text" autocomplete="address-level1" required />
+                        <small class="error" data-error-for="state"></small>
+                    </div>
+
+                    <div class="field">
+                        <label for="zip">ZIP/Postal Code</label>
+                        <input id="zip" name="zip" type="text" autocomplete="postal-code" required />
+                        <small class="error" data-error-for="zip"></small>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="country">Country</label>
+                    <select id="country" name="country" autocomplete="country" required>
+                        <option value="">Select a country</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="AU">Australia</option>
+                        <option value="DE">Germany</option>
+                        <option value="FR">France</option>
+                        <option value="IN">India</option>
+                        <option value="JP">Japan</option>
+                        <option value="BR">Brazil</option>
+                        <option value="MX">Mexico</option>
+                    </select>
+                    <small class="error" data-error-for="country"></small>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title">Amount</h2>
+                <div class="field">
+                    <label for="amount">Charge Amount (USD)</label>
+                    <input id="amount" name="amount" type="number" placeholder="0.99" required />
+                    <small class="error" data-error-for="amount"></small>
+                </div>
+            </section>
+
+            <div class="actions">
+                <button type="submit" class="btn-primary">Pay Now</button>
+                <div id="form-status" class="status" aria-live="polite"></div>
+            </div>
+        </form>
+
+        <div id="success" class="success hidden" role="status" aria-live="polite">
+            Payment details validated locally. Replace with a payment provider!
+        </div>
+    </main>
+</body>
+</html>

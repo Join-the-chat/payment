@@ -1,0 +1,101 @@
+:root {
+    --bg: #0b0d12;
+    --panel: #131722;
+    --text: #e7e9ee;
+    --muted: #aab1c0;
+    --primary: #4f7cf5;
+    --danger: #ff5a70;
+    --success: #43c37c;
+    --border: #242a38;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+.container {
+    max-width: 780px;
+    margin: 40px auto;
+    padding: 24px;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 0 0 16px;
+}
+
+.form {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.form-section { margin-bottom: 18px; }
+.section-title {
+    font-size: 16px;
+    color: var(--muted);
+    margin: 0 0 12px;
+}
+
+.field { margin-bottom: 12px; }
+.field-inline {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+label { display: block; font-size: 14px; margin-bottom: 6px; color: var(--text); }
+input, select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #0f1320;
+    color: var(--text);
+    outline: none;
+}
+input::placeholder { color: #7c8599; }
+
+.hint {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.error {
+    display: block;
+    font-size: 12px;
+    color: var(--danger);
+    margin-top: 6px;
+    min-height: 16px;
+}
+
+.actions { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.btn-primary {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-primary:hover { filter: brightness(1.1); }
+
+.status {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.success {
+    margin-top: 14px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #0f1a16;
+    border: 1px solid #113624;
+    color: var(--success);
+}
+
+.hidden { display: none; }
